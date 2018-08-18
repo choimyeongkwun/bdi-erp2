@@ -69,6 +69,7 @@ if(rs.next()){
 			</tr>
 		</table>
 	</fieldset>
+	<input type="hidden" name="uiNo" value="<%=uiNo%>">
 </form>
 </div>
 <script>

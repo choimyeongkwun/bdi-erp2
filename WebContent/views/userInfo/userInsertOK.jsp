@@ -14,7 +14,13 @@
 	String uiAge = request.getParameter("uiAge");
 	String diNo = request.getParameter("diNo");
 	
-	Connection con = DBConnection.getCon();
+	String driver="org.mariadb.jdbc.Driver";
+	String url = "jdbc:mariadb://localhost:3306/bdi";
+	String id = "bdi";
+	String pwd="bditest";
+	
+	Class.forName(driver);
+	Connection con = DriverManager.getConnection(url,id,pwd);
 	String sql = "insert into user_info(uiName, uiId, uiPwd, uiDesc, uiAge, diNo)values(?,?,?,?,?,?)";
 	PreparedStatement ps = con.prepareStatement(sql);
 	ps.setString(1,uiName);
