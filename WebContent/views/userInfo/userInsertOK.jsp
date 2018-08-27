@@ -1,4 +1,4 @@
-<%@page import="com.bdi.erp.common.DBConnection"%>
+<%@page import="com.bdi.erp.common.DBCon"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
@@ -30,7 +30,7 @@
 	ps.setString(5,uiAge);
 	ps.setString(6,diNo);
 	int cnt = ps.executeUpdate();
-	DBConnection.close();
+	DBCon.close();
 	if(cnt==1){
 %>
 <script>

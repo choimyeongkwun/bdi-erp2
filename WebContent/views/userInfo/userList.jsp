@@ -1,5 +1,5 @@
 <%@page import="java.sql.ResultSet"%>
-<%@page import="com.bdi.erp.common.DBConnection"%>
+<%@page import="com.bdi.erp.common.DBCon"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -24,11 +24,11 @@
 			</thead>
 			<tbody>
 				<%
-					Connection con = DBConnection.getCon();
-					String sql = "select uiNo,uiName,uiId,uiDesc,uiAge,diNO from user_info";
-					PreparedStatement ps = con.prepareStatement(sql);
-					ResultSet rs = ps.executeQuery();
-					while (rs.next()) {
+					Connection con = DBCon.getCon();
+							String sql = "select uiNo,uiName,uiId,uiDesc,uiAge,diNO from user_info";
+							PreparedStatement ps = con.prepareStatement(sql);
+							ResultSet rs = ps.executeQuery();
+							while (rs.next()) {
 				%>
 				<tr>
 					<td><a href="<%=rPath%>/views/userInfo/userView.jsp?uiNo=<%=rs.getInt("uiNo")%>"><%=rs.getInt("uiNo")%></a></td>
@@ -40,9 +40,9 @@
 				</tr>
 				<%
 					}
-					rs.close();
-					ps.close();
-					DBConnection.close();
+							rs.close();
+							ps.close();
+							DBCon.close();
 				%>
 			</tbody>
 		</table>

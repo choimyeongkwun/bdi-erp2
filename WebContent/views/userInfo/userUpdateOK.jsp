@@ -1,19 +1,19 @@
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="com.bdi.erp.common.DBConnection"%>
+<%@page import="com.bdi.erp.common.DBCon"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/views/common/common.jsp"%>
 <%
-String uiName = request.getParameter("uiName");
+	String uiName = request.getParameter("uiName");
 String uiId = request.getParameter("uiId");
 String uiPwd = request.getParameter("uiPwd");
 String uiDesc = request.getParameter("uiDesc");
 String uiAge = request.getParameter("uiAge");
 String diNo = request.getParameter("diNo");
 String uiNo = request.getParameter("uiNo");
-Connection con = DBConnection.getCon();
+Connection con = DBCon.getCon();
 String sql = "update user_Info set uiName=?,";
 sql += " uiId=?,";
 sql += " uiPwd=?,";
@@ -31,7 +31,7 @@ ps.setString(6,diNo);
 ps.setString(7,uiNo);
 try{
 int cnt = ps.executeUpdate();
-DBConnection.close();
+DBCon.close();
 out.println("cnt : " + cnt);
 if(cnt==1){
 %>

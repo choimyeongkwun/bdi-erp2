@@ -1,4 +1,4 @@
-<%@page import="com.bdi.erp.common.DBConnection"%>
+<%@page import="com.bdi.erp.common.DBCon"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,12 +6,12 @@
 <%@ include file="/views/common/common.jsp"%>
 <%
 	String tNo = request.getParameter("tNo");
-	Connection con = DBConnection.getCon();
+	Connection con = DBCon.getCon();
 	String sql ="delete from Test where tNo=?";
 	PreparedStatement ps = con.prepareStatement(sql);
 	ps.setString(1,tNo);
 	int cnt = ps.executeUpdate();
-	DBConnection.close();
+	DBCon.close();
 	if (cnt == 1) {
 %>
 <script>

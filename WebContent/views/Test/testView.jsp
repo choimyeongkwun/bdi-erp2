@@ -1,4 +1,4 @@
-<%@page import="com.bdi.erp.common.DBConnection"%>
+<%@page import="com.bdi.erp.common.DBCon"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
@@ -13,7 +13,7 @@
 			int tNo = Integer.parseInt(request.getParameter("tNo"));
 			String tBirth = "";
 
-			Connection con = DBConnection.getCon();
+			Connection con = DBCon.getCon();
 			String sql = "select tId, tBirth, tContent, tNo from Test";
 			sql += " where tNo=?";
 			PreparedStatement ps = con.prepareStatement(sql);

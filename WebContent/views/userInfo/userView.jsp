@@ -1,21 +1,21 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="com.bdi.erp.common.DBConnection"%>
+<%@page import="com.bdi.erp.common.DBCon"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/views/common/common.jsp"%>
 <body>
 <div class="container">
 <%
-String uiName="";
+	String uiName="";
 String uiId="";
 String uiDesc="";
 int uiNo =Integer.parseInt(request.getParameter("uiNo"));
 int uiAge = 0;
 int diNo =0;
 
-Connection con = DBConnection.getCon();
+Connection con = DBCon.getCon();
 String sql ="select uiName, uiId,uiDesc,uiNo ,uiAge, diNo from user_info";
 sql+= " where uiNo=?";
 PreparedStatement ps = con.prepareStatement(sql);

@@ -1,4 +1,4 @@
-<%@page import="com.bdi.erp.common.DBConnection"%>
+<%@page import="com.bdi.erp.common.DBCon"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
@@ -7,12 +7,12 @@
 <%@ include file="/views/common/common.jsp"%>
 <%
 	String uiNo = request.getParameter("uiNo");
-	Connection con = DBConnection.getCon();
+	Connection con = DBCon.getCon();
 	String sql = "delete from user_info where uiNo=?";
 	PreparedStatement ps = con.prepareStatement(sql);
 	ps.setString(1,uiNo);
 	int cnt = ps.executeUpdate();
-	DBConnection.close();
+	DBCon.close();
 	if (cnt == 1) {
 %>
 <script>

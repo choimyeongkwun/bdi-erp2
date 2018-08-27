@@ -7,14 +7,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class DBConnection {
+public class DBCon {
 	
 	private static Properties prop;
 	private static Connection con;
 	static {
 		prop = new Properties();
 		String path = "/config/db.properties";
-		InputStream is = DBConnection.class.getResourceAsStream(path);
+		InputStream is = DBCon.class.getResourceAsStream(path);
 		try {
 			prop.load(is);
 		}catch (IOException e) {
